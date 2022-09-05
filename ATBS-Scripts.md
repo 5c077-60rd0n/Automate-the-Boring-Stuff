@@ -1,6 +1,6 @@
 # Automate the Boring Stuff Scripts
 
-## Chapter 1
+## Chapter 1 The Basics
 
 `hello.py`
 
@@ -18,7 +18,7 @@ my_age = input()
 print('You will be ' + str(int(my_age) + 1) + ' in a year.')
 ```
 
-## Chapter 2
+## Chapter 2 Flow Control
 
 `exit_example.py`
 
@@ -252,3 +252,5 @@ while True:
         break
 print('Thank you!')
 ```
+
+## Chapter 3 Functions
