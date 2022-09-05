@@ -8,7 +8,10 @@ def collatz(number):
         print(odd_number)
         return odd_number
 
-response = int(input('Enter an integer: '))
-while response > 1:
-    response = collatz(response)
 
+try:
+    response = int(input('Enter an integer: '))
+    while response > 1:
+        response = collatz(response)
+except ValueError:
+    print('You must enter an integer.')
