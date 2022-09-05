@@ -4,7 +4,7 @@ def spam():
 
 
 def bacon():
-    egss = 'bacon'  # This is a local
+    eggs = 'bacon'  # This is a local
 
 
 def ham():
