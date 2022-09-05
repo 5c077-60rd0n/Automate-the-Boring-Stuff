@@ -1,4 +1,4 @@
-# Automate the Boring Stuff Scripts
+# Automate the Boring Stuff Practice Scripts 
 
 ## Chapter 1 The Basics
 
@@ -254,3 +254,244 @@ print('Thank you!')
 ```
 
 ## Chapter 3 Functions
+
+`abc_call_stack.py`
+
+```python
+def a():
+    print('a() starts')
+    b()
+    d()
+    print('a() returns')
+
+
+def b():
+    print('b() starts')
+    c()
+    print('b() returns')
+
+
+def c():
+    print('c() starts')
+    print('c() returns')
+
+
+def d():
+    print('d() starts')
+    print('d() returns')
+
+
+a()
+
+```
+
+`colatz.py`
+
+```python
+def collatz(number):
+    if number % 2 == 0:
+        even_number = number // 2
+        print(even_number)
+        return even_number
+    elif number % 2 == 1:
+        odd_number = 3 * number + 1
+        print(odd_number)
+        return odd_number
+
+
+try:
+    response = int(input('Enter an integer: '))
+    while response > 1:
+        response = collatz(response)
+except ValueError:
+    print('You must enter an integer.')
+
+```
+
+`global_statement.py`
+
+```python
+def spam():
+    global eggs
+    eggs = 'spam'
+
+
+eggs = 'global'
+spam()
+print(eggs)
+
+```
+
+`hello_func.py`
+
+```python
+def hello():
+    print('Howdy!')
+    print('Howdy!!!')
+    print('Hello there.')
+
+
+hello()
+hello()
+hello()
+
+```
+
+`hello_func2.py`
+
+```python
+def hello(name):
+    print('Hello, ' + name)
+
+
+hello('Alice')
+hello('Bob')
+
+```
+
+`local_global_same_name.py`
+
+```python
+def spam():
+    eggs = 'spam local'
+    print(eggs)     # Prints 'spam local'
+
+
+def bacon():
+    eggs = 'bacon local'
+    print(eggs)     # Prints 'bacon local'
+    spam()
+    print(eggs)     # Prints 'bacon local'
+
+
+eggs = 'global'
+bacon()
+print(eggs)         # prints 'global'
+
+```
+
+`magic_eight_ball.py`
+
+```python
+import random
+
+
+def get_answer(answer_number):
+    if answer_number == 1:
+        return 'It is certain'
+    elif answer_number == 2:
+        return 'It is decidedly so'
+    elif answer_number == 3:
+        return 'Yes'
+    elif answer_number == 4:
+        return 'Reply hazy try again'
+    elif answer_number == 5:
+        return 'Ask again later'
+    elif answer_number == 6:
+        return 'Concentrate and ask again'
+    elif answer_number == 7:
+        return 'My reply is no'
+    elif answer_number == 8:
+        return 'Outlook not so good'
+    elif answer_number == 9:
+        return 'Very doubtful'
+
+
+r = random.randint(1, 9)
+fortune = get_answer(r)
+print(fortune)
+
+```
+
+`same_name_local_global.py`
+
+```python
+def spam():
+    print(eggs) # ERROR!
+    eggs = 'spam local'
+
+eggs = 'global'
+spam()
+```
+
+```python
+def spam():
+    global eggs
+    eggs = 'spam'  # This is the global
+
+
+def bacon():
+    eggs = 'bacon'  # This is a local
+
+
+def ham():
+    print(eggs)  # This is the global
+
+
+eggs = 42  # This is the global
+spam()
+print(eggs)
+
+```
+
+`try_exception_zero_divide.py`
+
+```python
+def spam(divide_by):
+    try:
+        return 42 / divide_by
+    except ZeroDivisionError:
+        print('Error: Invalid argument.')
+
+
+print(spam(2))
+print(spam(12))
+print(spam(0))
+print(spam(1))
+
+```
+
+`zero_divide.py`
+
+```python
+def spam(divide_by):
+    return 42 / divide_by
+
+
+print(spam(2))
+print(spam(12))
+print(spam(0))
+print(spam(1))
+
+```
+
+`zigzag.py`
+
+```python
+import time
+import sys
+indent = 0  # How many spaces to indent.
+indent_increasing = True    # Whether the indentation is increasing or not.
+
+try:
+    while True:  # The main program loop.
+        print(' ' * indent, end='')
+        print('********')
+        time.sleep(0.1)  # Pause for 1/10 of a second.
+
+        if indent_increasing:
+            # Increase the number of spaces:
+            indent = indent + 1
+            if indent == 20:
+                # Change direction:
+                indent_increasing = False
+        else:
+            # Decrease the number of spaces:
+            indent = indent - 1
+            if indent == 0:
+                # Change direction:
+                indent_increasing = True
+except KeyboardInterrupt:
+    sys.exit()
+
+```
